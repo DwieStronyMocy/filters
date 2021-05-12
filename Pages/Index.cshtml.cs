@@ -11,7 +11,7 @@ namespace filters.Pages
 {
     public class IndexModel : PageModel
     {
-        public System.Net.IPAddress ip { get; set; }
+        public System.Net.IPAddress viewData { get; set; }
         private readonly ILogger<IndexModel> _logger;
         [BindProperty(SupportsGet = true)]
         public int testVriable { get; set; }
@@ -21,8 +21,8 @@ namespace filters.Pages
         }
         public override Task OnPageHandlerSelectionAsync(PageHandlerSelectedContext context)
         {
-            int a = 0;
-            ip = HttpContext.Request.HttpContext.Connection.RemoteIpAddress;
+            
+            viewData = HttpContext.Request.HttpContext.Connection.RemoteIpAddress;
             return Task.CompletedTask;
 
         }
